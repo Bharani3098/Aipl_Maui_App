@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aipl_Maui_App.Tabbed_Pages.Rejected_Calls_Page" Title="Rejected Calls">
+    <RefreshView x:Name="PullToRefresh" Refreshing="RefreshView_Refreshing">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <Frame HeightRequest="800" BorderColor="White" BackgroundColor="AliceBlue">
+                    <CollectionView x:Name="RejectedJobCollectionView" IsGrouped="True">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"></LinearItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <Label Text="{Binding GroupTitle}" FontSize="18"></Label>
+                            </DataTemplate>
+                        </CollectionView.GroupHeaderTemplate>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame CornerRadius="20" Margin="10">
+                                        <StackLayout>
+                                            <Grid HorizontalOptions="StartAndExpand">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Label Text="{Binding Job_No}" Grid.Row="0" FontSize="16"></Label>
+                                                <Label Text="{Binding Description}" Grid.Row="1" FontSize="12"></Label>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+            </ScrollView>
+        </Grid>
+    </RefreshView>
+</ContentPage>

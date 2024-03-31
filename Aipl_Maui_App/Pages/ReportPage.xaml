@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aipl_Maui_App.Pages.ReportPage"
+             Title="ReportPage" Background="AliceBlue">
+    <StackLayout>
+        <Frame HeightRequest="280">
+            <Grid RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="From Date" Grid.Row="0" Grid.Column="0" Margin="0,15,0,0"></Label>
+                <DatePicker Grid.Row="0" Grid.Column="1" HeightRequest="40" MaximumWidthRequest="90" Format="dd-MM-yyyy"></DatePicker>
+                <Label Text="To Date" Grid.Row="0" Grid.Column="2" Margin="0,15,0,0" HorizontalOptions="Center"></Label>
+                <DatePicker Grid.Row="0" Grid.Column="4" HeightRequest="40" MaximumWidthRequest="90" Format="dd-MM-yyyy"></DatePicker>
+
+                <Label Text="Raised By" Grid.Row="1" Grid.Column="0" Margin="0,15,0,0"></Label>
+                <Picker Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HeightRequest="30"></Picker>
+
+                <Label Text="NDT Type" Grid.Row="2" Grid.Column="0" Margin="0,15,0,0"></Label>
+                <Picker Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" HeightRequest="30"></Picker>
+
+                <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Text="Generate Report" BackgroundColor="SkyBlue" FontSize="18"
+                        TextColor="Black" FontAutoScalingEnabled="True"></Button>
+            </Grid>
+        </Frame>
+        
+    </StackLayout>
+</ContentPage>

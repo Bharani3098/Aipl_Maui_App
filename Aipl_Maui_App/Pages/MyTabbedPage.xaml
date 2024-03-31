@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aipl_Maui_App.MyTabbedPage"
+            xmlns:Pages="clr-namespace:Aipl_Maui_App.Tabbed_Pages">
+    <!--Pages can be added as references or inline-->
+    
+    <Pages:Raised_Calls_Page Title="New Calls"></Pages:Raised_Calls_Page>
+    <Pages:Accepted_Calls_Page Title="Accepted Calls"></Pages:Accepted_Calls_Page>
+    <Pages:Rejected_Calls_Page Title="Rejected Calls"></Pages:Rejected_Calls_Page>
+</TabbedPage>
+    

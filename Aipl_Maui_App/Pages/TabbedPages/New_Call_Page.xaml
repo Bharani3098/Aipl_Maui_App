@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Aipl_Maui_App.TabbedPages.New_Call_Page" BackgroundColor="AliceBlue"
+             Title="New Calls Page">
+    <ContentPage.Resources>
+        <Style x:Key="ScaleButtonStyle" TargetType="Button">
+            <Setter Property="HeightRequest" Value="5"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal"/>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="0.8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SelectedBackgroundcolor" TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="DarkOrange" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RefreshView Refreshing="RefreshView_Refreshing" x:Name="PullToRefresh" >
+            <StackLayout Padding="10" >
+                <!--<Frame BackgroundColor="Orange" HasShadow="True" CornerRadius="20">
+                        <StackLayout HeightRequest="100">
+                            <SearchBar x:Name="JobSearchBox" HeightRequest="20" HorizontalOptions="StartAndExpand" Placeholder="Search Jobs"
+                                       PlaceholderColor="LightGray" TextChanged="SearchBar_TextChanged"></SearchBar>
+                            <CollectionView Style="{StaticResource SelectedBackgroundcolor}" Margin="10"
+                                            x:Name="JobsCollectionView" SelectionMode="Single" SelectionChanged="JobCollectionView_SelectionChanged"
+                                            EmptyView="Not Available" HeightRequest="80">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Padding="5" Style="{StaticResource SelectedBackgroundcolor}">
+                                            <Frame x:Name="JobFrame" BackgroundColor="WhiteSmoke"  HasShadow="True" CornerRadius="20"
+                                                   WidthRequest="80">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                                                </Frame.GestureRecognizers>
+                                                <Label Text="{Binding Job_No}" TextColor="Black"></Label>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Frame>-->
+                <Frame BackgroundColor="Orange" HasShadow="True" CornerRadius="20" Margin="0,10,0,0">
+                    <StackLayout>
+                        <StackLayout>
+                            <!--<CollectionView x:Name="JobTrailCollectionView" SelectionMode="Single" EmptyView="Not Available"
+                                                HorizontalOptions="CenterAndExpand" HeightRequest="90"
+                                                SelectionChanged="JobTrailCollectionView_SelectionChanged">
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Margin="10">
+                                                <Frame x:Name="TrailjobFrame" BackgroundColor="WhiteSmoke" HasShadow="True"
+                                                       CornerRadius="20">
+                                                    <Frame.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                                    </Frame.GestureRecognizers>
+                                                    <Label Text="{Binding DJob_No}" TextColor="Black"></Label>
+                                                </Frame>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>-->
+                            <StackLayout>
+                                <ScrollView>
+                                    <Grid ColumnSpacing="5" RowSpacing="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Grid Row 0 -->
+                                        <Label Text="Date Of Offering" Grid.Row="0" Grid.Column="0" Margin="0,15,0,0"></Label>
+                                        <DatePicker Grid.Row="0" Grid.Column="1" Format="dd/MM/yyyy"></DatePicker>
+                                        <!-- Grid Row 1 -->
+                                        <Label Text="NDT" Grid.Row="1" Grid.Column="0" Margin="0,10,0,0"></Label>
+                                        <Picker Title="select an option" x:Name="picker_NDT" Grid.Row="1" Grid.Column="1"
+                                                    SelectedIndexChanged="picker_NDT_SelectedIndexChanged"></Picker>
+                                        <!-- Grid Row 2 -->
+                                        <Label x:Name="Lbl_Type" Text="Type" VerticalOptions="Center" Grid.Row="2" Grid.Column="0"></Label>
+                                        <Picker x:Name="Pkr_Ins_Type" Grid.Row="2" Grid.Column="1" SelectedIndexChanged="Pkr_Ins_Type_SelectedIndexChanged"></Picker>
+                                        <!-- Grid Row 3 -->
+                                        <Frame Grid.Row="3" Grid.ColumnSpan="2" x:Name="frame_RT" BackgroundColor="WhiteSmoke">
+                                            <ScrollView HeightRequest="420">
+                                                <Grid RowSpacing="10">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <VerticalStackLayout Spacing="5" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                                        <Label Text="Job No"></Label>
+                                                        <Picker x:Name="Pkr_Job_No" Title="Select Job No" SelectedIndexChanged="Pkr_Job_No_SelectedIndexChanged"></Picker>
+                                                        
+                                                        <Label Text="No.Of.joints"></Label>
+                                                        <Entry x:Name="Txt_joints" Placeholder="Job No" PlaceholderColor="LightGray" ></Entry>
+                                                        
+                                                        <Label Text="Drawing Reference"></Label>
+                                                        <Picker x:Name="Pkr_Drawing_Ref" Title="Select Drawing Reference"></Picker>
+                                                        
+                                                        <Label Text="joint Reference"></Label>
+                                                        <Editor x:Name="Txt_Joint_Ref" Placeholder="Joints References"></Editor>
+                                                        
+                                                        <Label Text="Test Condition"></Label>
+                                                        <Picker x:Name="Pkr_Test_Condtn" Title="Select Test Condition"></Picker>
+                                                        
+                                                        <Label Text="Extent of Test"></Label>
+                                                        <Picker x:Name="Pkr_Extn_Test" Title="Select Extent Of Test"></Picker>
+                                                        
+                                                        <Label Text="Welding Process"></Label>
+                                                        <Picker x:Name="Pkr_Weld_Process" Title="Select Welding Process"></Picker>
+                                                        
+                                                        <Label Text="Dimensions"></Label>
+                                                        <Entry x:Name="Txt_Dmsn" Placeholder="(in mm)" PlaceholderColor="LightGray"></Entry>
+                                                        
+                                                        <Label Text="Reinforcements"></Label>
+                                                        <Entry x:Name="Txt_Reinforcement" Placeholder="Reinforcement" PlaceholderColor="LightGray"></Entry>
+                                                        
+                                                        <Label Text="Location"></Label>
+                                                        <Entry x:Name="Txt_Location" Placeholder="Location" PlaceholderColor="LightGray"></Entry>
+                                                        
+                                                        <Label Text="Welder Id"></Label>
+                                                        <Picker x:Name="Pkr_Welder_Id" Title="Select Welder Id"></Picker>
+                                                        
+                                                        <Label Text="Tag No."></Label>
+                                                        <Entry x:Name="Txt_Tag_No" Placeholder="Tag No" PlaceholderColor="LightGray"></Entry>
+                                                    </VerticalStackLayout>
+                                                </Grid>
+                                            </ScrollView>
+                                        </Frame>
+
+                                        <Frame Grid.Row="3" Grid.ColumnSpan="2" x:Name="frame_NotRT">
+                                            <ScrollView HeightRequest="420">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <VerticalStackLayout Spacing="5" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                                        <Label Text="Job No"></Label>
+                                                        <Picker x:Name="Pkr_Job_No_1" Title="Select Job No"></Picker>
+                                                        <Label Text="Welder Type"></Label>
+                                                        <Picker x:Name="Pkr_Welder_Type" Title="Select Welder Type"></Picker>
+                                                        <Label Text="Welder Name/Welder Id"></Label>
+                                                        <Picker x:Name="Pkr_Welder_Id_1" Title="Welder Id"></Picker>
+                                                        <Entry x:Name="Txt_Welder_Name" Placeholder="Welder Name"></Entry>
+                                                        <Label Text="Weld Position"></Label>
+                                                        <Picker x:Name="Pkr_Weld_Position" Title="Select Weld Position"></Picker>
+                                                        <Label Text="Welding Process"></Label>
+                                                        <Picker x:Name="Pkr_Weld_Process_1" Title="Select Weld Process"></Picker>
+                                                        <Label Text="Material"></Label>
+                                                        <Picker x:Name="Pkr_Material" Title="Select Material"></Picker>
+                                                        <Label Text="Material Thickness"></Label>
+                                                        <Entry x:Name="Txt_Mat_Thickness" Placeholder="Material thickness"></Entry>
+                                                    </VerticalStackLayout>
+                                                </Grid>
+                                            </ScrollView>
+                                        </Frame>
+                                        <!-- Grid Row 4-->
+                                        <Button Grid.Row="4" x:Name="Btn_Save" BackgroundColor="Green" Grid.Column="0" Text="Save" HeightRequest="40" WidthRequest="90" FontSize="Body"
+                                                    HorizontalOptions="Center" Style="{StaticResource ScaleButtonStyle}" Clicked="Btn_Save_Clicked">
+                                        </Button>
+                                        <Button BackgroundColor="Red" Grid.Row="4" Grid.Column="1" HeightRequest="40" WidthRequest="90" FontSize="Body"
+                                                    Style="{StaticResource ScaleButtonStyle}" Text="Cancel" HorizontalOptions="Center"></Button>
+                                    </Grid>
+                                </ScrollView>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

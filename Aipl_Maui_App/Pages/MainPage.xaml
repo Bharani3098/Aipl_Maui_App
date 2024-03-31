@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aipl_Maui_App.MainPage" BackgroundColor="AliceBlue">
+    <StackLayout>
+        <Frame Margin="0,10,0,0" HeightRequest="60" BackgroundColor="DarkOrange" HasShadow="True">
+            <Label Text="Inspection Call Raised" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" FontSize="Header"></Label>
+        </Frame>
+        <Frame HeightRequest="690" HasShadow="True">
+            <VerticalStackLayout>
+                <Label Text="VerticalStack"></Label>
+            </VerticalStackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

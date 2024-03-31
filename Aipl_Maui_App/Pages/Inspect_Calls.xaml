@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aipl_Maui_App.Pages.Inspect_Calls"
+             Title="{Binding Title}">
+    <ScrollView>
+        <Grid Padding="5" RowSpacing="10">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Inspection Id" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Start" FontAttributes="Bold"></Label>
+            <Label Text="Date" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalTextAlignment="Start" FontAttributes="Bold"></Label>
+            <Label Text="{Binding Inspection_Id}" Margin="15,0,0,0" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+            <Label Text="{Binding Raised_Date}" Margin="15,0,0,0" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" HorizontalTextAlignment="Start" ></Label>
+
+            <Label x:Name="Test_Type" Text="{Binding Ndt_offering}" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="0" FontAttributes="Italic" FontSize="24" TextColor="Blue"></Label>
+            <Label Text="Type" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontAttributes="Bold" FontSize="18"></Label>
+            <Label  x:Name="Offering_Type" Text="{Binding Type}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" FontAttributes="Bold" FontSize="18"></Label>
+
+            <Frame x:Name="Frame_RT" Grid.Row="4" Grid.ColumnSpan="4" Grid.Column="0" BorderColor="Transparent">
+                <ScrollView>
+                    <Grid RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 0 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 1 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 2 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 3 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 4 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 5 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 6 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 7 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 8 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 9 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 10 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 11 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 12 -->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!-- 13 -->                            
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Job.No" Grid.Row="0" Grid.Column="0"></Label>
+                        <Label x:Name="Lbl_Job_No" Text="{Binding Job_No}" Grid.Row="0" Grid.Column="1"></Label>
+
+                        <Label Text="Tag.No" Grid.Row="1" Grid.Column="0"></Label>
+                        <Label Text="{Binding Tag_No}" Grid.Row="1" Grid.Column="1"></Label>
+
+                        <Label Text="No Of Joints" Grid.Row="2" Grid.Column="0"></Label>
+                        <Label Text="{Binding Noofjoints}" Grid.Row="2" Grid.Column="1"></Label>
+
+                        <Label Text="Joints Reference" Grid.Row="3" Grid.Column="0"></Label>
+                        <Label Text="{Binding Joint_Reference}" Grid.Row="4" Grid.Column="1"></Label>
+
+                        <Label Text="Drawing Reference" Grid.Row="5" Grid.Column="0"></Label>
+                        <Label Text="{Binding Drawing_Reference}" Grid.Row="5" Grid.Column="1"></Label>
+
+                        <Label Text="Test Condition" Grid.Row="6" Grid.Column="0"></Label>
+                        <Label Text="{Binding Test_Condition}" Grid.Row="6" Grid.Column="1"></Label>
+
+                        <Label Text="Extent Of Testing" Grid.Row="7" Grid.Column="0"></Label>
+                        <Label Text="{Binding Extent_Of_Testing}" Grid.Row="7" Grid.Column="1"></Label>
+
+                        <Label Text="Welding Process" Grid.Row="8" Grid.Column="0"></Label>
+                        <Label Text="{Binding Weld_Process}" Grid.Row="8" Grid.Column="1"></Label>
+
+                        <Label Text="Dimension" Grid.Row="9" Grid.Column="0"></Label>
+                        <Label Text="{Binding Dimension}" Grid.Row="9" Grid.Column="1"></Label>
+
+                        <Label Text="Reinforcement" Grid.Row="10" Grid.Column="0"></Label>
+                        <Label Text="{Binding Reinforcement}" Grid.Row="10" Grid.Column="1"></Label>
+
+                        <Label Text="Welder" Grid.Row="11" Grid.Column="0"></Label>
+                        <Label Text="{Binding Welder_Id}" Grid.Row="11" Grid.Column="1"></Label>
+
+                        <Label Text="Location" Grid.Row="12" Grid.Column="0"></Label>
+                        <Label Text="{Binding Location}" Grid.Row="12" Grid.Column="1"></Label>
+
+                        <Label Text="Raised By" Grid.Row="13" Grid.Column="0"></Label>
+                        <Label Text="{Binding Raised_name}" Grid.Row="13" Grid.Column="1"></Label>
+                    </Grid>
+                </ScrollView>
+            </Frame>
+            <Frame x:Name="Frame_test_Plate" Grid.Row="4" Grid.ColumnSpan="4" Grid.Column="0" BorderColor="Transparent">
+                <Grid RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Welder Type" Grid.Row="0" Grid.Column="0"></Label>
+                    <Label Text="{Binding Welder_Type}" Grid.Row="0" Grid.Column="1"></Label>
+
+                    <Label Text="Welder Name" Grid.Row="1" Grid.Column="0"></Label>
+                    <Label Text="{Binding Welder_Id}" Grid.Row="1" Grid.Column="1"></Label>
+
+                    <Label Text="Welding Position" Grid.Row="2" Grid.Column="0"></Label>
+                    <Label Text="{Binding Weld_position}" Grid.Row="2" Grid.Column="1"></Label>
+
+                    <Label Text="Welding Process" Grid.Row="3" Grid.Column="0"></Label>
+                    <Label Text="{Binding Weld_Process}" Grid.Row="3" Grid.Column="1"></Label>
+
+                    <Label Text="Material" Grid.Row="4" Grid.Column="0"></Label>
+                    <Label Text="{Binding Material}" Grid.Row="4" Grid.Column="1"></Label>
+
+                    <Label Text="Material Thickness" Grid.Row="5" Grid.Column="0"></Label>
+                    <Label Text="{Binding Mat_thickness}" Grid.Row="5" Grid.Column="1"></Label>
+                </Grid>
+            </Frame>
+            <Frame x:Name="Frame_Job" Grid.Row="4" Grid.ColumnSpan="4" Grid.Column="0" BorderColor="Transparent">
+                <Grid RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Job No" Grid.Row="0" Grid.Column="0"></Label>
+                    <Label Text="{Binding Job_No}" Grid.Row="0" Grid.Column="1"></Label>
+
+                    <Label Text="Welder Name" Grid.Row="1" Grid.Column="0"></Label>
+                    <Label Text="{Binding Welder_Id}" Grid.Row="1" Grid.Column="1"></Label>
+
+                    <Label Text="Welding Position" Grid.Row="2" Grid.Column="0"></Label>
+                    <Label Text="{Binding Weld_position}" Grid.Row="2" Grid.Column="1"></Label>
+
+                    <Label Text="Welding Process" Grid.Row="3" Grid.Column="0"></Label>
+                    <Label Text="{Binding Weld_Process}" Grid.Row="3" Grid.Column="1"></Label>
+
+                    <Label Text="Material" Grid.Row="4" Grid.Column="0"></Label>
+                    <Label Text="{Binding Material}" Grid.Row="4" Grid.Column="1"></Label>
+
+                    <Label Text="Material Thickness" Grid.Row="5" Grid.Column="0"></Label>
+                    <Label Text="{Binding Mat_thickness}" Grid.Row="5" Grid.Column="1"></Label>
+                </Grid>
+            </Frame>
+            <Frame x:Name="Frame_UT" Grid.Row="4" Grid.ColumnSpan="4" Grid.Column="0" BorderColor="Transparent">
+                <Grid RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Job No" Grid.Row="0" Grid.Column="0"></Label>
+                    <Label Text="{Binding Job_No}" Grid.Row="0" Grid.Column="1"></Label>
+
+                    <Label Text="No.Of.Joints" Grid.Row="1" Grid.Column="0"></Label>
+                    <Label Text="{Binding Noofjoints}" Grid.Row="1" Grid.Column="1"></Label>
+
+                    <Label Text="Joints Reference" Grid.Row="2" Grid.Column="0"></Label>
+                    <Label Text="{Binding Joint_Reference}" Grid.Row="2" Grid.Column="1"></Label>
+
+                    <Label Text="Drawing Reference" Grid.Row="3" Grid.Column="0"></Label>
+                    <Label Text="{Binding Drawing_Reference}" Grid.Row="3" Grid.Column="1"></Label>
+
+                    <Label Text="Test Condition" Grid.Row="4" Grid.Column="0"></Label>
+                    <Label Text="{Binding Test_Condition}" Grid.Row="4" Grid.Column="1"></Label>
+
+                    <Label Text="Tag No" Grid.Row="5" Grid.Column="0"></Label>
+                    <Label Text="{Binding Tag_No}" Grid.Row="5" Grid.Column="1"></Label>
+                </Grid>
+            </Frame>
+            <Button x:Name="Btn_Check" Text="Check" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" WidthRequest="140" BackgroundColor="MediumSeaGreen" TextColor="Black" HeightRequest="45" FontAttributes="Bold">
+                <Button.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Btn_Check_Tapped"></TapGestureRecognizer>
+                </Button.GestureRecognizers>
+            </Button>
+            <Button x:Name="Btn_Reject" Text="Cancel" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" WidthRequest="140" BackgroundColor="IndianRed" TextColor="Black" HeightRequest="45" FontAttributes="Bold">
+                <Button.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Btn_Reject_Tapped"></TapGestureRecognizer>
+                </Button.GestureRecognizers>
+            </Button>
+        </Grid>
+    </ScrollView>
+</ContentPage>

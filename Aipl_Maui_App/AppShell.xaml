@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Aipl_Maui_App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Aipl_Maui_App"
+    xmlns:Pages="clr-namespace:Aipl_Maui_App.Pages" xmlns:tabs="clr-namespace:Aipl_Maui_App.Tabbed_Pages"  
+    xmlns:pgs="clr-namespace:Aipl_Maui_App.TabbedPages"
+    Shell.TabBarIsVisible="False"
+    Title="Aipl_Maui_App" BackgroundColor="LightBlue">
+    <Shell.Resources>
+        <Style x:Key="FloutItemStyle" TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Orange"/>
+                                <Setter TargetName="_label" Property="Label.TextColor" Value="Black" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </Shell.Resources>
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="LightBlue" HeightRequest="200">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Row="0" CornerRadius="55" HeightRequest="105" WidthRequest="105">
+                    <Image Source="userpic.png" Scale="2"></Image>
+                </Frame>
+                <Label HorizontalOptions="CenterAndExpand" x:Name="lbluserName" Grid.Row="1" Grid.Column="0" Margin="0,15,0,0" FontSize="18"></Label>
+                <Label HorizontalOptions="CenterAndExpand" x:Name="lblDepartment" Grid.Row="2" Grid.Column="0" FontSize="18"></Label>
+                <Label HorizontalOptions="CenterAndExpand" x:Name="lblDesignation" Grid.Row="3" Grid.Column="0" FontSize="18"></Label>
+            </Grid>
+            
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <ShellContent
+        Title="Default" FlyoutItemIsVisible="False"
+        ContentTemplate="{DataTemplate Pages:LoginPage}"
+        Shell.FlyoutBehavior="Disabled"
+        Route="LoginPage" Shell.TabBarIsVisible="False" />
+    
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" FlyoutItem.IsVisible="True">
+        <ShellContent
+            Title="Home"
+            FlyoutIcon="home.png"
+            Route="MainPage"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Shell.FlyoutBehavior="Flyout" Shell.TabBarIsVisible="False"/>
+        <Tab x:Name="Inspection_tabbs" Title="Inspection Offered" Shell.UnselectedColor="MediumPurple" FlyoutIcon="inspection.png">
+            <ShellContent x:Name="Tab_RaisedCalls"
+                Title="Raised Calls"
+                ContentTemplate="{DataTemplate tabs:Raised_Calls_Page}"
+                Route="Raised_Calls_page" Shell.FlyoutItemIsVisible="False"></ShellContent>
+            <ShellContent x:Name="Tab_AcceptedCalls"
+                Title="Accepted Calls"
+                ContentTemplate="{DataTemplate tabs:Accepted_Calls_Page}"
+                Route="Accepted_Calls_Page" Shell.FlyoutItemIsVisible="False"></ShellContent>
+            <ShellContent x:Name="Tab_RejectedCalls"
+                Title="Rejected Calls"
+                ContentTemplate="{DataTemplate tabs:Rejected_Calls_Page}"
+                Route="Rejected_Calls_Page" Shell.FlyoutItemIsVisible="False"></ShellContent>
+            <ShellContent x:Name="Tab_NewCall"
+                          Title="Raise New Call"
+                          ContentTemplate="{DataTemplate pgs:New_Call_Page}"
+                          Route="New_Call_Page" Shell.FlyoutItemIsVisible="False"></ShellContent>
+        </Tab>
+        <ShellContent
+            Title="Reports"
+            FlyoutIcon="clipboard.png"
+            Shell.FlyoutBehavior="Flyout"
+            Shell.TabBarIsVisible="False"
+            ContentTemplate="{DataTemplate Pages:ReportPage}"/>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <Button Text="Sign Out" Margin="10" Command="{Binding SignOutCommand}"></Button>
+    </Shell.FlyoutFooter>
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior TextOverride="Back"></BackButtonBehavior>
+    </Shell.BackButtonBehavior>
+</Shell>

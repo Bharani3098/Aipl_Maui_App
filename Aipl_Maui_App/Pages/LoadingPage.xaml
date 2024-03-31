@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aipl_Maui_App.Pages.LoadingPage"
+             xmlns:tabs="clr-namespace:Aipl_Maui_App.Tabbed_Pages"
+             Title="Loading Page">
+    <ContentPage.Resources>
+        <Style x:Key="ScaleButtonStyle" TargetType="Button">
+            <Setter Property="HeightRequest" Value="5"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal"/>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="0.8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <RefreshView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="560"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <BoxView x:Name="BxView_Raisedcalls" Color="AliceBlue" Grid.Row="0" Grid.Column="0">
+
+            </BoxView>
+            <Button x:Name="Btn_Raised_Calls" Grid.Row="0" Grid.Column="0" WidthRequest="150" Text="Raised Calls"
+            VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45"
+            BackgroundColor="Transparent" TextColor="MediumPurple" Clicked="Btn_Raised_Calls_Clicked">
+            </Button>
+
+            <BoxView x:Name="BxView_Acceptedcalls" Color="AliceBlue" Grid.Row="0" Grid.Column="1">
+
+            </BoxView>
+            <Button x:Name="Btn_Accepted_Calls" Grid.Row="0" Grid.Column="1" WidthRequest="150" Text="Accepted Calls"
+            VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45"
+            BackgroundColor="Transparent" TextColor="MediumPurple" Clicked="Btn_Accepted_Calls_Clicked"></Button>
+
+            <BoxView x:Name="BxView_Rejectedcalls" Color="AliceBlue" Grid.Row="0" Grid.Column="2">
+
+            </BoxView>
+            <Button x:Name="Btn_Rejected_Calls" Grid.Row="0" Grid.Column="2" WidthRequest="150" Text="Rejected Calls"
+            VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45"
+            BackgroundColor="Transparent" TextColor="MediumPurple" Clicked="Btn_Rejected_Calls_Clicked"></Button>
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="3" x:Name="JobListCollectionView">
+                <RefreshView>
+                    <StackLayout Padding="10">
+                        <Frame BackgroundColor="LightGray" HasShadow="True" CornerRadius="20">
+                            <StackLayout HeightRequest="120">
+                                <SearchBar HeightRequest="30" HorizontalOptions="StartAndExpand" ></SearchBar>
+                                <CollectionView Margin="10" x:Name="JobCollectionView" SelectionMode="Single" EmptyView="Not Available" HeightRequest="100">
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Padding="5">
+                                                <Frame BackgroundColor="WhiteSmoke"  HasShadow="True" CornerRadius="20" WidthRequest="80">
+                                                    <Label Text="{Binding Job_No}" TextColor="Black" FontFamily="sanserif"></Label>
+                                                </Frame>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                        </Frame>
+                        <Frame BackgroundColor="LightGray" HasShadow="True" CornerRadius="20" Margin="0,15,0,0">
+                            <StackLayout HeightRequest="290">
+                                <CollectionView x:Name="JobTrailCollectionView" SelectionMode="Single" EmptyView="Not Available"
+                                        HorizontalOptions="CenterAndExpand" HeightRequest="100" >
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Vertical" Span="3"></GridItemsLayout>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout HeightRequest="50" Padding="5">
+                                                <Frame BackgroundColor="WhiteSmoke" HasShadow="True" CornerRadius="20" WidthRequest="75">
+                                                    <Label Text="{Binding DJob_No}" TextColor="Black"></Label>
+                                                </Frame>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                                <StackLayout>
+                                    <Grid x:Name="Grid2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="Job.No" Grid.Row="0" Grid.Column="0" Margin="10" FontFamily="sanserif"></Label>
+                                        <Entry HeightRequest="50" Grid.Row="0" Grid.Column="1" WidthRequest="260"></Entry>
+                                        <Label Text="Description" Grid.Row="1" Grid.Column="0" Margin="10" FontFamily="sanserif"></Label>
+                                        <Entry HeightRequest="50" Grid.Row="1" Grid.Column="1" WidthRequest="260"></Entry>
+                                        <Button Text="Save" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" WidthRequest="100"></Button>
+                                        <Button Text="Cancel" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" WidthRequest="100"></Button>
+                                    </Grid>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </RefreshView>
+            </StackLayout>
+
+        </Grid>
+    </RefreshView>
+    
+</ContentPage>

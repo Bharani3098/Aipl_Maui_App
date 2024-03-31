@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aipl_Maui_App.Pages.LoginPage"
+             Title="" NavigationPage.HasNavigationBar="False" BackgroundColor="Orange" Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.ColumnSpan="2" Source="logo.jpg" Margin="50,50, 50, 100"></Image>
+                <Entry Grid.Row="1" x:Name="txt_userName" Grid.ColumnSpan="2" HeightRequest="50" Placeholder="UserName" TextColor="White" PlaceholderColor="WhiteSmoke" HorizontalOptions="FillAndExpand" Margin="10" ></Entry>
+                <Entry Grid.Row="2" x:Name="txt_passWord" Grid.ColumnSpan="2" HeightRequest="50" Placeholder="PassWord" TextColor="White" PlaceholderColor="WhiteSmoke" IsPassword="True" HorizontalOptions="FillAndExpand" Margin="10"></Entry>
+                <Button Grid.Row="3" Grid.Column="0" Text="Log In" HorizontalOptions="Start" Margin="10,0,0,0" BackgroundColor="Purple" Clicked="Button_Clicked"></Button>
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
